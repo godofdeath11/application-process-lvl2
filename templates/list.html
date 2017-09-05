@@ -1,0 +1,33 @@
+<DOCTYPE !html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/style_list.css" media="screen, print">
+    <meta charset ="utf-8">
+    <title>list</title>
+</head>
+<body>
+    <div id="header">Results</div>
+    <table>
+    <div id ="titlelist"><tr>
+        {% for columnname in titlelist %}
+        <th>
+            {{  columnname  }}
+        </th>
+        {% endfor %}
+    </tr>
+    </div>
+    <div id="records">
+        {%for record in query%}
+    <tr>
+        {%for columnname in titlelist%}
+            <th>
+                {% if record[columnname] != None %}
+                {{  record[columnname]  }}
+                {% else %}
+                No data
+                {% endif %}
+                </th>
+        {% endfor %}
+    </tr>
+        {%  endfor %}
+    </div>
+</body>
