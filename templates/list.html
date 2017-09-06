@@ -1,31 +1,34 @@
 <DOCTYPE !html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/static/css/style_list.css" media="screen, print">
-    <meta charset ="utf-8">
-    <title>list</title>
+   <link rel="stylesheet" type="text/css" href="/static/css/style_list.css" media="screen, print">
+   <meta charset ="utf-8">
+   <title>Result</title>
 </head>
 <body>
-    <div class="header">Results</div>
-    <table>
-        <tr class="titlelist">
-        {% for title in title_list %}
-        <th>
+   <div class="header">Results</div>
+   <br>
+   <table>
+      <tr class="titlelist">
+         {% for title in title_list %}
+         <th>
             {{  title  }}
-        </th>
-        {% endfor %}
-    </tr>
-        {%for record in query%}
-    <tr class="records">
-        {%for columnname in column_list%}
-            <th>
-                {% if record[columnname] != None %}
-                {{  record[columnname]  }}
-                {% else %}
-                No data
-                {% endif %}
-                </th>
-        {% endfor %}
-    </tr>
-        {%  endfor %}
-    </div>
+         </th>
+         {% endfor %}
+      </tr>
+      {%for record in query%}
+      <tr class="records">
+         {%for columnname in column_list%}
+         <th>
+            {% if record[columnname] != None %}
+            {{  record[columnname]  }}
+            {% else %}
+            No data
+            {% endif %}
+         </th>
+         {% endfor %}
+      </tr>
+      {%  endfor %}
+   </table>
+   <br>
+   <a href="/"> Back to the main page</a>
 </body>

@@ -62,9 +62,10 @@ def applicants_with_mentor(cursor):
                              mentors.first_name,
                              mentors.last_name
                       FROM applicants_mentors
-                      INNER JOIN applicants
+                      RIGHT JOIN applicants
                       ON applicants_mentors.applicant_id = applicants.id
-                      INNER JOIN mentors
-                      ON applicants_mentors.mentor_id = mentors.id''')
+                      LEFT JOIN mentors
+                      ON applicants_mentors.mentor_id = mentors.id
+                      ORDER BY applicants.id''')
     query_result = cursor.fetchall()
     return query_result

@@ -1,5 +1,5 @@
 body{
-    background-color: lightblue;
+    background: lightgoldenrodyellow
 }
 table {
     border-collapse: collapse;
@@ -10,9 +10,15 @@ table, th, td {
     padding : 10px;
 }
 .header{
-    color:red;
-    font-size: 400%;
+    font-size: 250%;
+    text-decoration-line: underline;
     font-family: Arial, Helvetica, sans-serif;
+}
+.menutitle{
+    padding :10px;
+}
+.links{
+    padding:10px;
 }
 .titlelist{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -22,4 +28,11 @@ table, th, td {
 .records{
     text-align: left;
     font-size: 120%;
+}
+a {
+	color: #ee2e24;
+	text-decoration: none;
+}
+a:hover {
+	color: black; 
 }
