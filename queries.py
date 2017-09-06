@@ -3,12 +3,13 @@ import database_common
 
 @database_common.connection_handler
 def mentors_with_schools(cursor):
-    cursor.execute('''SELECT mentors.first_name, mentors.last_name, schools.city, schools.country 
+    cursor.execute('''SELECT mentors.first_name, mentors.last_name, schools.name, schools.country 
                       FROM schools
                       JOIN mentors
                       ON schools.contact_person = mentors.id
                       ORDER BY mentors.id''')
     query_result = cursor.fetchall()
+    print(query_result)
     return query_result
 
 
@@ -30,3 +31,4 @@ def count_mentors_by_schools(cursor):
                       GROUP BY country''')
     query_result = cursor.fetchall()
     return query_result
+

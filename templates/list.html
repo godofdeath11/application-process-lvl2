@@ -5,19 +5,17 @@
     <title>list</title>
 </head>
 <body>
-    <div id="header">Results</div>
+    <div class="header">Results</div>
     <table>
-    <div id ="titlelist"><tr>
+        <tr class="titlelist">
         {% for columnname in titlelist %}
         <th>
             {{  columnname  }}
         </th>
         {% endfor %}
     </tr>
-    </div>
-    <div id="records">
         {%for record in query%}
-    <tr>
+    <tr class="records">
         {%for columnname in titlelist%}
             <th>
                 {% if record[columnname] != None %}
