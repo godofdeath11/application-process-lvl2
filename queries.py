@@ -32,3 +32,12 @@ def count_mentors_by_schools(cursor):
     query_result = cursor.fetchall()
     return query_result
 
+
+@database_common.connection_handler
+def schools_with_mentors(cursor):
+    cursor.execute('''SELECT schools.name, mentors.first_name, mentors.last_name
+                      FROM schools
+                      LEFT JOIN mentors 
+                      ON schools.contact_person = mentors.id''')  # not clear by the task(delete LEFT if needed)
+    query_result = cursor.fetchall()
+    return query_result

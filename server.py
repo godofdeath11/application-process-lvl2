@@ -30,6 +30,13 @@ def count_mentors_by_schools():
     return render_template("/list.html", titlelist=titlelist, query=query_result)
 
 
+@app.route("/contacts")
+def schools_with_mentors():
+    query_result = queries.schools_with_mentors()
+    titlelist = ("name", "first_name", "last_name")
+    return render_template("/list.html", titlelist=titlelist, query=query_result)
+
+
 if __name__ == "__main__":
     app.secret_key = "youshouldntseethis"
     app.run(
