@@ -37,6 +37,13 @@ def schools_with_mentors():
     return render_template("/list.html", titlelist=titlelist, query=query_result)
 
 
+@app.route("/applicants")
+def applicants_with_date():
+    query_result = queries.applicants_with_date()
+    titlelist = ("first_name", "application_code", "creation_date")
+    return render_template("list.html", titlelist=titlelist, query=query_result)
+
+
 if __name__ == "__main__":
     app.secret_key = "youshouldntseethis"
     app.run(
