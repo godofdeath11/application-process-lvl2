@@ -11,37 +11,50 @@ def index():
 @app.route("/mentors")
 def mentors_with_schools():
     query_result = queries.mentors_with_schools()
-    titlelist = ("first_name", "last_name", "country", "name")
-    return render_template("/list.html", titlelist=titlelist, query=query_result)
+    column_list = ("first_name", "last_name", "country", "name")
+    title_list = ("First name", "Last name", "Country", "School")
+    return render_template("/list.html", column_list=column_list, query=query_result, title_list=title_list)
 
 
 @app.route("/all-school")
 def mentors_with_allschools():
     query_result = queries.mentors_with_allschool()
-    titlelist = ("first_name", "last_name", "country", "name")
+    column_list = ("first_name", "last_name", "country", "name")
+    title_list = ("First name", "Last name", "Country", "School")
     print(query_result)
-    return render_template("/list.html", titlelist=titlelist, query=query_result)
+    return render_template("/list.html", column_list=column_list, query=query_result, title_list=title_list)
 
 
 @app.route("/mentors-by-country")
 def count_mentors_by_schools():
     query_result = queries.count_mentors_by_schools()
-    titlelist = ("country", "count")
-    return render_template("/list.html", titlelist=titlelist, query=query_result)
+    column_list = ("country", "count")
+    title_list = ("Country", "Sum")
+    return render_template("/list.html", column_list=column_list, query=query_result, title_list=title_list)
 
 
 @app.route("/contacts")
 def schools_with_mentors():
     query_result = queries.schools_with_mentors()
-    titlelist = ("name", "first_name", "last_name")
-    return render_template("/list.html", titlelist=titlelist, query=query_result)
+    column_list = ("name", "first_name", "last_name")
+    title_list = ("School", "First name", "Last name")
+    return render_template("/list.html", column_list=column_list, query=query_result, title_list=title_list)
 
 
 @app.route("/applicants")
 def applicants_with_date():
     query_result = queries.applicants_with_date()
-    titlelist = ("first_name", "application_code", "creation_date")
-    return render_template("list.html", titlelist=titlelist, query=query_result)
+    column_list = ("first_name", "application_code", "creation_date")
+    title_list = ("First name", "Application code", "Creation date")
+    return render_template("list.html", column_list=column_list, query=query_result, title_list=title_list)
+
+
+@app.route("/applicants-and-mentors")
+def applicants_with_mentors():
+    query_result = queries.applicants_with_mentor()
+    column_list = ("applicant_first_name", "application_code", "first_name", "last_name")
+    title_list = ("applicant's First name", "Application code", "First name", "Last name")
+    return render_template("list.html", column_list=column_list, query=query_result, title_list=title_list)
 
 
 if __name__ == "__main__":

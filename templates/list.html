@@ -8,15 +8,15 @@
     <div class="header">Results</div>
     <table>
         <tr class="titlelist">
-        {% for columnname in titlelist %}
+        {% for title in title_list %}
         <th>
-            {{  columnname  }}
+            {{  title  }}
         </th>
         {% endfor %}
     </tr>
         {%for record in query%}
     <tr class="records">
-        {%for columnname in titlelist%}
+        {%for columnname in column_list%}
             <th>
                 {% if record[columnname] != None %}
                 {{  record[columnname]  }}
